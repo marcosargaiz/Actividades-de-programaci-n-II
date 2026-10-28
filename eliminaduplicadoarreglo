@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class EliminarDuplicadoArreglo {
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+
+        System.out.print("Cuantos numeros tendra el arreglo? ");
+        int cantidad = teclado.nextInt();
+        int[] numeros = new int[cantidad];
+        int[] sinDuplicados = new int[cantidad];
+        int cantidadUnicos = 0;
+
+        for (int i = 0; i < cantidad; i++) {
+            System.out.print("Introduce el numero " + (i + 1) + ": ");
+            numeros[i] = teclado.nextInt();
+        }
+
+        for (int numero : numeros) {
+            boolean repetido = false;
+            for (int i = 0; i < cantidadUnicos; i++) {
+                if (sinDuplicados[i] == numero) {
+                    repetido = true;
+                    break;
+                }
+            }
+            if (!repetido) sinDuplicados[cantidadUnicos++] = numero;
+        }
+
+        System.out.print("Arreglo sin duplicados: [");
+        for (int i = 0; i < cantidadUnicos; i++) {
+            System.out.print(sinDuplicados[i]);
+            if (i < cantidadUnicos - 1) System.out.print(", ");
+        }
+        System.out.println("]");
+        teclado.close();
+    }
+}

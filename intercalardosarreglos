@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class IntercalarDosArreglos {
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+
+        System.out.print("Cuantos elementos tendra cada arreglo? ");
+        int cantidad = teclado.nextInt();
+        int[] primero = new int[cantidad];
+        int[] segundo = new int[cantidad];
+        int[] resultado = new int[cantidad * 2];
+
+        System.out.println("Introduce los elementos del primer arreglo:");
+        for (int i = 0; i < cantidad; i++) primero[i] = teclado.nextInt();
+
+        System.out.println("Introduce los elementos del segundo arreglo:");
+        for (int i = 0; i < cantidad; i++) segundo[i] = teclado.nextInt();
+
+        for (int i = 0; i < cantidad; i++) {
+            resultado[i * 2] = primero[i];
+            resultado[i * 2 + 1] = segundo[i];
+        }
+
+        System.out.print("Arreglo intercalado: [");
+        for (int i = 0; i < resultado.length; i++) {
+            System.out.print(resultado[i]);
+            if (i < resultado.length - 1) System.out.print(", ");
+        }
+        System.out.println("]");
+        teclado.close();
+    }
+}

@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class SumaMatrices {
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+
+        System.out.print("Numero de filas: ");
+        int filas = teclado.nextInt();
+        System.out.print("Numero de columnas: ");
+        int columnas = teclado.nextInt();
+        int[][] primera = new int[filas][columnas];
+        int[][] segunda = new int[filas][columnas];
+        int[][] suma = new int[filas][columnas];
+
+        System.out.println("Introduce los elementos de la primera matriz:");
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) primera[i][j] = teclado.nextInt();
+        }
+
+        System.out.println("Introduce los elementos de la segunda matriz:");
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) segunda[i][j] = teclado.nextInt();
+        }
+
+        System.out.println("Matriz resultante:");
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                suma[i][j] = primera[i][j] + segunda[i][j];
+                System.out.print(suma[i][j] + " ");
+            }
+            System.out.println();
+        }
+        teclado.close();
+    }
+}
